@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "dedot": "^0.0.1-alpha.39",
+    "framer-motion": "^11.3.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -25,6 +29,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "prettier": "^3.3.3",
     "typescript": "5.4.5",
     "vite": "^5.3.1"
   }

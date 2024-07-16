@@ -1,3 +1,5 @@
+import { decodeAddress } from 'dedot/utils';
+
 /**
  * Format on=chain balance
  *
@@ -6,4 +8,17 @@
  */
 export const formatBalance = (balance: bigint, decimal: number = 10): string => {
   return (parseFloat(balance.toString()) / Math.pow(10, decimal)).toString();
-}
+};
+
+/**
+ * Validate a Polkadot address
+ *
+ * @param addressToCheck
+ */
+export const validateAddress = (addressToCheck: string) => {
+  try {
+    return !!decodeAddress(addressToCheck);
+  } catch (e) {
+    return false;
+  }
+};
