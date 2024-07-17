@@ -6,7 +6,7 @@ import { decodeAddress } from 'dedot/utils';
  * @param balance
  * @param decimal
  */
-export const formatBalance = (balance: bigint, decimal: number = 10): string => {
+export const formatBalance = (balance: bigint, decimal: number = 12): string => {
   return (parseFloat(balance.toString()) / Math.pow(10, decimal)).toString();
 };
 
