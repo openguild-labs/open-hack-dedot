@@ -68,7 +68,7 @@ npm run dev
 
 Prerequisite: Complete the main activity
 
-- [ ] Connect to Westend People testnet
+- [ ] Initialize `DedotClient` to connect to Westend People testnet
 - [ ] Build a form to enter identity information: Display name, Email, Discord handle
 - [ ] Make a transaction to set on-chain identity for connected account
 - [ ] Fetch & render your on-chain identity
