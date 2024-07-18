@@ -199,5 +199,10 @@ Prerequisite: Complete the main activity
 
 A bounty of 2 DOT to claim for the first 5 participants to submit the challenge to OpenGuild
 
-### 🙋 How to claim the bounty?
-- `TODO`
+### 🙋 How to claim the bounty? (TODO double-check this)
+👉 Complete the challenge on your fork repository
+👉 Star Dedot repository
+👉 Follow OpenGuild Lab Github
+👉 Join OpenGuild Discord
+👉 Submit the proof-of-work (your challenge repository) to OpenGuild Discord
+
