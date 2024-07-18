@@ -1,3 +1,5 @@
+![Dedot](https://github.com/user-attachments/assets/6d1f59b4-9f44-4077-a3c7-03bad7f7fe21)
+
 # Open Hack Dedot
 
 Made by the collaboration between [OpenGuild Labs](https://openguild.wtf) and [Dedot](https://dedot.dev) to introduce participants about building decentralized application on Polkadot.
