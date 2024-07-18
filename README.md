@@ -1,5 +1,6 @@
 # OpenHack Workshop - Dedot
-![Dedot](https://github.com/user-attachments/assets/6d1f59b4-9f44-4077-a3c7-03bad7f7fe21)
+
+![2024-07-18 16 17 02](https://github.com/user-attachments/assets/16da307d-2cd3-42a7-bc03-c3470978d77a)
 
 Made by the collaboration between [OpenGuild Labs](https://openguild.wtf) and [Dedot](https://dedot.dev) to introduce participants about building decentralized application on Polkadot.
 
