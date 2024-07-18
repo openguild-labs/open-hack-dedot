@@ -5,24 +5,24 @@ import { DedotClient, WsProvider } from 'dedot';
 import { FrameSystemAccountInfo } from '@dedot/chaintypes/polkadot';
 import { formatBalance, validateAddress } from './utils.ts';
 import { Box, Button, Container, Divider, Flex, FormControl, FormLabel, Heading, Input, Text } from '@chakra-ui/react';
-import { TransactionEvent } from 'dedot/types';
-import { RococoApi } from '@dedot/chaintypes';
-import { ROCOCO } from './networks.ts';
+import { TxStatus } from 'dedot/types';
+import { WestendApi } from '@dedot/chaintypes';
+import { WESTEND } from './networks.ts';
 
 function App() {
-  const [client, setClient] = useState<DedotClient<RococoApi>>();
+  const [client, setClient] = useState<DedotClient<WestendApi>>();
   const [injected, setInjected] = useState<Injected>();
   const [account, setAccount] = useState<InjectedAccount>();
   const [balance, setBalance] = useState<FrameSystemAccountInfo>();
   const [dest, setDest] = useState<string>('');
   const [amount, setAmount] = useState<string>('');
-  const [txStatus, setTxStatus] = useState<TransactionEvent>();
+  const [txStatus, setTxStatus] = useState<TxStatus>();
   const [error, setError] = useState<string>();
 
   useEffect(() => {
     (async () => {
       console.log('Connecting to network...');
-      const client = new DedotClient<RococoApi>(new WsProvider(ROCOCO.endpoint));
+      const client = new DedotClient<WestendApi>(new WsProvider(WESTEND.endpoint));
       await client.connect();
 
       setClient(client);
@@ -63,7 +63,7 @@ function App() {
     setError(undefined);
     setTxStatus(undefined);
 
-    const amountToTransfer = BigInt(parseFloat(amount) * Math.pow(10, ROCOCO.decimals));
+    const amountToTransfer = BigInt(parseFloat(amount) * Math.pow(10, WESTEND.decimals));
     await client!.tx.balances
       .transferAllowDeath(dest, amountToTransfer)
       .signAndSend(account!.address, { signer: injected!.signer }, (result) => {
@@ -99,7 +99,7 @@ function App() {
               Address: <b>{account.address}</b>
             </Text>
             <Text my={2}>
-              Balance: <b>{balance?.data && formatBalance(balance.data.free, ROCOCO.decimals)}</b>
+              Balance: <b>{balance?.data && formatBalance(balance.data.free, WESTEND.decimals)}</b>
             </Text>
             <Divider my={4} />
             <FormControl>
