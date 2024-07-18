@@ -113,6 +113,7 @@ import { DedotClient, WsProvider } from 'dedot';
 import { WestendApi } from '@dedot/chaintypes';
 import { WESTEND } from './networks.ts';
 
+// initialize the client and connect to the network
 const client = new DedotClient<WestendApi>(new WsProvider(WESTEND.endpoint));
 await client.connect();
 
