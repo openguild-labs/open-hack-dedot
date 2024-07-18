@@ -46,13 +46,13 @@ npm -v # should print `10.7.0`
 ### 3. Fork, clone the repo
 
 - Fork the repo
-
+<img width="800" alt="Xnapper-2024-07-18-22 10 30" src="https://github.com/user-attachments/assets/c8be2790-e75f-488b-9e43-b2e7726ffa77">
 
 - Clone the repo
 ```shell
-git clone https://github.com/openguild-labs/openhack-dedot
+git clone https://github.com/{your-github-username}/openhack-dedot
 ```
-
+E.g: `https://github.com/sinzii/openhack-dedot`
 
 ### 4. Install dependencies & start development mode
 
@@ -78,6 +78,52 @@ npm run dev
 - [ ] Check transaction status (in-block & finalized)
 - [ ] Check transaction result (success or not)
 - [ ] Subscribe to balance changing
+
+### 6. How to?
+
+#### Install dedot and necessary dependencies
+
+```typescript
+npm i dedot
+
+npm i -D @dedot/chaintypes @polkadot/extension-inject
+```
+
+#### Connect to SubWallet & fetch connected accounts
+
+```typescript
+import { Injected, InjectedAccount, InjectedWindowProvider, InjectedWindow } from '@polkadot/extension-inject/types';
+
+const injectedWindow = window as Window & InjectedWindow;
+
+// Get subwallet-js injected provider to connect with SubWallet
+const provider: InjectedWindowProvider = injectedWindow.injectedWeb3['subwallet-js'];
+
+// Connect with SubWallet from the dapp
+const injected: Injected = await provider.enable!('Open Hack Dapp');
+
+// Get connected accounts
+const accounts: InjectedAccount[] = await injected.accounts.get();
+```
+
+#### Initialize `DedotClinet` to connect to `Westend` network
+
+```typescript
+import { WestendApi } from '@dedot/chaintypes';
+import { WESTEND } from './networks.ts';
+
+const client = new DedotClient<WestendApi>(new WsProvider(WESTEND.endpoint));
+await client.connect();
+
+// OR
+const client = await DedotClient.new<WestendApi>(new WsProvider(WESTEND.endpoint));
+```
+
+#### Fetching balance for an account
+
+#### Transfer balance to destination address
+
+#### Subscribe to balance changing
 
 ## Challenge: Set your on-chain identity
 
