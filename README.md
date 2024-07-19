@@ -203,6 +203,7 @@ A bounty of 2 DOT to claim for the first 5 participants to submit the challenge 
 👉 Complete the challenge on your fork repository <br/>
 👉 Star Dedot repository <br/>
 
+---
 # 🙌 How to contribute to the community?
 
 To submit a proposal, ideas, or any questions, please submit them here: [OpenGuild Discussion 💬](https://github.com/orgs/openguild-labs/discussions)
