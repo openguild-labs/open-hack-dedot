@@ -202,6 +202,9 @@ A bounty of 2 DOT to claim for the first 5 participants to submit the challenge 
 ### 🙋 How to claim the bounty? (TODO double-check this)
 👉 Complete the challenge on your fork repository <br/>
 👉 Star Dedot repository <br/>
+👉 Follow OpenGuild Lab Github <br/>
+👉 Join OpenGuild Discord <br/>
+👉 Submit the proof-of-work (your challenge repository) to OpenGuild Discord <br/>
 
 ---
 # 🙌 How to contribute to the community?
@@ -216,7 +219,4 @@ View tickets and activities that you can contribute: [Community Activities 🖐�
 - **Propose project ideas:** Your creativity and innovation are welcomed at OpenGuild. Propose project ideas that align with the goals of our community. Whether it's a new application, a tool, or a solution addressing a specific challenge in the Polkadot ecosystem, your ideas can spark exciting collaborations.
 
 - **Contribute to our developer tools:** Get involved in the ongoing development and improvement of tools that aid developers in their projects. Whether it's through code contributions, bug reports, or feature suggestions, your involvement in enhancing these tools strengthens the foundation for innovation within OpenGuild and the broader Polkadot community.
-👉 Follow OpenGuild Lab Github <br/>
-👉 Join OpenGuild Discord <br/>
-👉 Submit the proof-of-work (your challenge repository) to OpenGuild Discord <br/>
 
