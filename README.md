@@ -4,6 +4,8 @@
 
 Made by the collaboration between [OpenGuild Labs](https://openguild.wtf) and [Dedot](https://dedot.dev) to introduce to participants about building decentralized applications on Polkadot.
 
+[Slide Content](https://docs.google.com/presentation/d/1FNEy4griCqPOmQjjjNkjbth04K2KFPgs/edit?usp=sharing&ouid=101569412264936116370&rtpof=true&sd=true)
+
 ## Main Activity: Live Coding Session
 
 🎯 Build a simple dapp to show & transfer balance on Polkadot testnet
