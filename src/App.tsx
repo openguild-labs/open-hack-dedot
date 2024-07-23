@@ -1,28 +1,60 @@
-import dedotLogo from './assets/dedot-dark-logo.png';
-import { Container, Flex, Heading } from '@chakra-ui/react';
+import { useState, useEffect } from "react";
+import { DedotClient, WsProvider } from "dedot";
+import {Injected, InjectedAccount, InjectedWindow, InjectedWindowProvider} from '@polkadot/extension-inject/types';
+import { WestendApi } from "@dedot/chaintypes";
+import { WESTEND } from "./networks";
+import {Button, Flex} from "@chakra-ui/react"
+import AccountInfo from "./components/AccountInfo";
+import {Props} from "./vite-env";
 
-function App() {
-  // 1. Connect to SubWallet
-  // 2. Show connected account (name & address)
-  // 3. Initialize `DedotClient` to connect to the network (Westend testnet)
-  // 4. Fetch & show balance for connected account
-  // 5. Build a form to transfer balance (destination address & amount to transfer)
-  // 6. Check transaction status (in-block & finalized)
-  // 7. Check transaction result (success or not)
-  // 8. Subscribe to balance changing
+export default function Result() {
 
-  return (
-    <Container maxW='container.md' my={16}>
-      <Flex justifyContent='center'>
-        <a href='https://dedot.dev' target='_blank'>
-          <img width='100' src={dedotLogo} className='logo' alt='Vite logo' />
-        </a>
-      </Flex>
-      <Heading my={4} textAlign='center'>
-        Open Hack Dedot
-      </Heading>
-    </Container>
-  );
+    const [client, setClient] = useState<DedotClient<WestendApi>>();
+    const [injected, setInjected] = useState<Injected>();
+    const [account, setAccount] = useState<InjectedAccount>();
+    const [connecting, setConnecting] = useState(false);
+
+    const collectWallet = async () => {
+        setConnecting(true);
+        const injectedWindow = window as Window & InjectedWindow;
+        const provider: InjectedWindowProvider = injectedWindow.injectedWeb3['subwallet-js'];
+        const injected: Injected = await provider.enable!("Open Hack Dedot");
+        const accounts: InjectedAccount[] = await injected.accounts.get();
+        setAccount(accounts[0]);
+        setInjected(injected);
+        setConnecting(false);
+    }
+
+    useEffect(() => {
+        const connectNetwork = async () => {
+            const client = await (new DedotClient<WestendApi>(new WsProvider(WESTEND.endpoint))).connect();
+            setClient(client);
+        }
+        connectNetwork();
+
+        return () => {
+            const disconnectNetwork = async () => {
+                await client?.disconnect();
+            }
+            disconnectNetwork();
+        }
+    }, []);
+
+    const isClientConnected =  client ?? status === "connected"
+    const isConnectedAccount = isClientConnected && injected && !!account?.address;
+    console.log(account, "Connect", isConnectedAccount)
+    return (
+        <Flex minW="100vw" minH="100vh" justifyContent="center" alignItems="center">
+            { isConnectedAccount ?
+                <AccountInfo {...{ client, account, injected } as Props} /> :
+                <Button
+                    onClick={collectWallet}
+                    isLoading={connecting}
+                    loadingText={"Connecting Wallet"}
+                >
+                    Connect Wallet
+                </Button>
+            }
+        </Flex>
+    );
 }
-
-export default App;
